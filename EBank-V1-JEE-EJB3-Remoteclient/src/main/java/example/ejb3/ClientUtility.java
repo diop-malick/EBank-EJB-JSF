@@ -1,4 +1,4 @@
-package ejb3;
+package example.ejb3;
 
 import java.util.Properties;
 import javax.naming.Context;

@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>EBank-V1-JEE-EJB3-core</artifactId>
-			<type>ejb-client</type>
+			<!-- <type>ejb-client</type> -->
 			<version>${project.parent.version}</version>
 		</dependency>
 
@@ -84,32 +84,32 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
 			<!-- Add the maven exec plugin to allow us to run a java program via maven -->
-			<!-- <plugin> -->
-			<!-- <groupId>org.codehaus.mojo</groupId> -->
-			<!-- <artifactId>exec-maven-plugin</artifactId> -->
-			<!-- <version>${version.exec.plugin}</version> -->
-			<!-- <executions> -->
-			<!-- <execution> -->
-			<!-- <goals> -->
-			<!-- <goal>exec</goal> -->
-			<!-- </goals> -->
-			<!-- </execution> -->
-			<!-- </executions> -->
-			<!-- <configuration> -->
-			<!-- <executable>java</executable> -->
-			<!-- <workingDirectory>${project.build.directory}/exec-working-directory</workingDirectory> -->
-			<!-- <arguments> -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${version.exec.plugin}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>java</executable>
+					<workingDirectory>${project.build.directory}/exec-working-directory</workingDirectory>
+					<arguments>
 
-			<!-- automatically creates the classpath using all project dependencies, 
-				also adding the project build directory -->
+						<!-- automatically creates the classpath using all project dependencies, 
+							also adding the project build directory -->
 
-			<!-- <argument>-classpath</argument> -->
-			<!-- <classpath> -->
-			<!-- </classpath> -->
-			<!-- <argument>ejb3.Client</argument> -->
-			<!-- </arguments> -->
-			<!-- </configuration> -->
-			<!-- </plugin> -->
+						<argument>-classpath</argument>
+						<classpath>
+						</classpath>
+						<argument>example.ejb3.Client</argument>
+					</arguments>
+				</configuration>
+			</plugin>
 		</plugins>
 
 	</build>

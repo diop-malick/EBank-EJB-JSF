@@ -1,7 +1,9 @@
-package ejb3;
+package example.ejb3;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
+
+import example.ejb3.HelloWorldBeanRemote;
 
 
 public class Client {
@@ -39,8 +41,9 @@ public class Client {
          * The module name is the JAR name of the deployed EJB without the .jar
          * suffix.
          */
-        String moduleName = "ejbmavendemo-1.0-SNAPSHOT";
- 
+        
+        String moduleName = "EBank-V1-JEE-EJB3";
+        String moduleNversion = "1.0-SNAPSHOT";
         /*
          * AS7 allows each deployment to have an (optional) distinct name. This
          * can be an empty string if distinct name is not specified.
@@ -51,11 +54,10 @@ public class Client {
         String beanName = "HelloWorldBean";
  
         // Fully qualified remote interface name
-        final String interfaceName = "ejb3.HelloWorldBeanRemote";
+        final String interfaceName = "example.ejb3.HelloWorldBeanRemote";
  
         // Create a look up string name
-        String name = "ejb:" + appName + "/" + moduleName + "/" + distinctName
-                + "/" + beanName + "!" + interfaceName;
+        String name = "ejb:" + appName + "/" + moduleName + "-" + moduleNversion + "/" + distinctName + "/" + beanName + "!" + interfaceName;
  
         return name;
     }

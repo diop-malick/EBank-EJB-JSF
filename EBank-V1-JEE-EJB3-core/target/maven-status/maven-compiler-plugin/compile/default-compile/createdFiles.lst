@@ -1,2 +1,15 @@
-ejb3\HelloWorldBeanRemote.class
-ejb3\HelloWorldBean.class
+metier\entities\Employe.class
+metier\services\BanqueSOAPService.class
+metier\entities\Versement.class
+metier\session\BanqueEJBImpl.class
+metier\session\BanqueRemote.class
+metier\entities\Compte.class
+metier\entities\Groupe.class
+metier\entities\Retrait.class
+metier\session\BanqueLocal.class
+example\ejb3\HelloWorldBeanRemote.class
+metier\entities\Client.class
+metier\entities\CompteEpargne.class
+metier\entities\Operation.class
+example\ejb3\HelloWorldBean.class
+metier\entities\CompteCourant.class
