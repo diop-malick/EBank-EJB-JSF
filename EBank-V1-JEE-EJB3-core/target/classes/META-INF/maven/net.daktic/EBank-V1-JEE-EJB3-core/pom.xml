@@ -13,66 +13,53 @@
 
 	<artifactId>EBank-V1-JEE-EJB3-core</artifactId>
 	<name>Archetype - EBank-V1-JEE-EJB3-core</name>
-	<url>http://maven.apache.org</url>
-
 
 	<!-- TO DEPLOY -->
 	<!-- ============================================================================================== -->
 	<!-- Deploy EJB3 JAR in JBoss AS -->
 	<!-- Method 1: using [jboss-as:deploy] maven goal after server started -->
 
+
 	<!-- PROPERTIES -->
 	<!-- ============================================================================================== -->
 	<properties>
-
-
 		<!-- Optional: to use jboss-as:run goal -->
-		<!--<jboss-as.home>C:\DevTools\jboss\jboss-as-7.1.1.Final</jboss-as.home> -->
-
+		<jboss-as.home>C:\DevTools\jboss\jboss-as-7.1.1.Final</jboss-as.home>
+		<jboss.home>${jboss-as.home}</jboss.home>
+		<jboss.domain>default</jboss.domain>
+		<jboss.version>7.1.1.Final</jboss.version>
 	</properties>
+
 
 	<!-- DEPENDENCY Managment -->
 	<!-- ============================================================================================== -->
-	<dependencyManagement>
-		<dependencies>
-			<!-- Define the version of JBoss' Java EE 6 APIs we want to use -->
-			<!-- JBoss distributes a complete set of Java EE 6 APIs including a Bill 
-				of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection) 
-				of artifacts. We use this here so that we always get the correct versions 
-				of artifacts. Here we use the jboss-javaee-6.0 stack (you can read this as 
-				the JBoss stack of the Java EE 6 APIs). You can actually use this stack with 
-				any version of JBoss AS that implements Java EE 6, not just JBoss AS 7! -->
-			<dependency>
-				<groupId>org.jboss.spec</groupId>
-				<artifactId>jboss-javaee-6.0</artifactId>
-				<version>${version.org.jboss.spec.jboss.javaee.6.0}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+
+
+	<!-- REPO -->
+	<!-- ============================================================================================== -->
+
 
 	<!-- DEPENDENCIES -->
 	<!-- ============================================================================================== -->
 	<dependencies>
-
-		<!-- Required Maven Dependencies for EJB3 -->
-
-		<!-- Import the Common Annotations API (JSR-250), we use provided scope 
-			as the API is included in JBoss AS 7 -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.jboss.spec</groupId> -->
+		<!-- <artifactId>jboss-javaee-6.0</artifactId> -->
+		<!-- <version>3.0.3.Final</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.glassfish</groupId> -->
+		<!-- <artifactId>javaee-api</artifactId> -->
+		<!-- <version>3.1.1</version> -->
+		<!-- </dependency> -->
 		<dependency>
-			<groupId>org.jboss.spec.javax.annotation</groupId>
-			<artifactId>jboss-annotations-api_1.1_spec</artifactId>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Import the EJB 3.1 API, we use provided scope as the API is included 
-			in JBoss AS 7 -->
-		<dependency>
-			<groupId>org.jboss.spec.javax.ejb</groupId>
-			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
+		<!-- tetst -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
