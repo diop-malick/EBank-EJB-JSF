@@ -7,7 +7,7 @@
 
 	<parent>
 		<groupId>net.daktic</groupId>
-		<artifactId>EBank-V1-JEE-EJB</artifactId>
+		<artifactId>EBank-V1-JEE-EJB3</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
@@ -15,15 +15,19 @@
 	<name>Archetype - EBank-V1-JEE-EJB3-core</name>
 	<url>http://maven.apache.org</url>
 
+
+	<!-- TO DEPLOY -->
+	<!-- ============================================================================================== -->
+	<!-- Deploy EJB3 JAR in JBoss AS -->
+	<!-- Method 1: using [jboss-as:deploy] maven goal after server started -->
+
 	<!-- PROPERTIES -->
 	<!-- ============================================================================================== -->
 	<properties>
-		<!-- JBoss dependency versions -->
-		<version.org.jboss.as.plugins.maven.plugin>7.3.Final</version.org.jboss.as.plugins.maven.plugin>
-		<version.org.jboss.spec.jboss.javaee.6.0>3.0.0.Final</version.org.jboss.spec.jboss.javaee.6.0>
 
-		<!-- other plugin versions -->
-		<version.ejb.plugin>2.3</version.ejb.plugin>
+
+		<!-- Optional: to use jboss-as:run goal -->
+		<!--<jboss-as.home>C:\DevTools\jboss\jboss-as-7.1.1.Final</jboss-as.home> -->
 
 	</properties>
 
@@ -53,7 +57,7 @@
 	<dependencies>
 
 		<!-- Required Maven Dependencies for EJB3 -->
-		
+
 		<!-- Import the Common Annotations API (JSR-250), we use provided scope 
 			as the API is included in JBoss AS 7 -->
 		<dependency>
@@ -86,7 +90,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
 			<!-- Set the name of the deployment -->
-			<!-- JBoss AS plugin used to deploy, redeploy, undeploy or run your application in JBoss AS -->
+			<!-- JBoss AS plugin used to deploy, redeploy, undeploy or run your application 
+				in JBoss AS -->
 			<plugin>
 				<groupId>org.jboss.as.plugins</groupId>
 				<artifactId>jboss-as-maven-plugin</artifactId>
@@ -95,7 +100,8 @@
 					<filename>${project.build.finalName}.jar</filename>
 				</configuration>
 			</plugin>
-			<!-- generates J2EE Enterprise Javabean (EJB) file as well as the associated client jar -->
+			<!-- generates J2EE Enterprise Javabean (EJB) file as well as the associated 
+				client jar -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-ejb-plugin</artifactId>

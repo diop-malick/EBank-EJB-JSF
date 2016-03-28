@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.daktic</groupId>
-	<artifactId>EBank-V1-JEE-EJB</artifactId>
+	<artifactId>EBank-V1-JEE-EJB3</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -19,13 +19,16 @@
 		<!-- maven-compiler-plugin -->
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
-		<!-- Explicitly declaring the source encoding eliminates the following 
-			message: [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
-			resources, i.e. build is platform dependent! -->
+		<!-- Explicitly declaring the source encoding eliminates message [WARNING] -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+		<!-- JBoss dependency versions -->
+		<version.org.jboss.as>7.1.1.Final</version.org.jboss.as>
+		<version.org.jboss.as.plugins.maven.plugin>7.3.Final</version.org.jboss.as.plugins.maven.plugin>
+		<version.org.jboss.spec.jboss.javaee.6.0>3.0.0.Final</version.org.jboss.spec.jboss.javaee.6.0>
 		<!-- other plugin versions -->
+		<version.ejb.plugin>2.3</version.ejb.plugin>
+		<version.exec.plugin>1.2.1</version.exec.plugin>
 		<version.compiler.plugin>3.5.1</version.compiler.plugin>
 
 	</properties>
