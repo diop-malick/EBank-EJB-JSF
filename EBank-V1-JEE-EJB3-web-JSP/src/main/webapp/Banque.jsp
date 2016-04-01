@@ -13,17 +13,15 @@
 <body>
 	<!-- Formulaire de Recherche d'un compte -->
 	<div id="formRecherche">
-		<form action="controleur" method="get">
+		<form action="controleur" method="post">
 			<table>
 				<tr>
 					<td>Code :</td>
-					<td><input type="number" name="code" value="${code}"
+					<td><input type="text" name="numeroCompte" value="${numeroCompte}"
 						required="required"></td>
 					<td>${errCode}</td>
 					<td><input type="submit" name="action" value="Consulter">
 					</td>
-					<td><input type="submit" name="action"
-						value="Tous Les comptes"></td>
 				</tr>
 			</table>
 		</form>
@@ -34,7 +32,7 @@
 			<table>
 				<tr>
 					<td>Code:</td>
-					<td>${compte.code}</td>
+					<td>${compte.numeroCompte}</td>
 				</tr>
 				<tr>
 					<td>Solde:</td>
@@ -47,10 +45,10 @@
 			</table>
 		</div>
 		<div id="formOperations">
-			<form action="controleur" method="get">
+			<form action="controleur" method="post">
 				<table>
 					<tr>
-						<td><input type="hidden" name="code" value="${code}"></td>
+						<td><input type="hidden" name="numeroCompte" value="${numeroCompte}"></td>
 						<td><input type="number" name="montant" required="required"
 							value="${montant}"></td>
 						<td>${mtMsgERr}</td>
@@ -63,6 +61,11 @@
 			</form>
 		</div>
 	</c:if>
+	
+	<form action="controleur" method="get">
+		<td><input type="submit" name="action"value="Tous Les comptes"></td>
+	</form>
+	<!-- LISTE DES COMPTES -->	
 	<c:if test="${comptes!=null}">
 		<div id="listeComptes">
 			<table border="1" width="80%">
@@ -73,7 +76,7 @@
 				</tr>
 				<c:forEach items="${comptes}" var="cp">
 					<tr>
-						<td>${cp.code}</td>
+						<td>${cp.numeroCompte}</td>
 						<td>${cp.solde}</td>
 						<td>${cp.dateCreation}</td>
 					</tr>

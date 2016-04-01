@@ -19,12 +19,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 @Entity
 @Table(name = "ebank_compte",uniqueConstraints = {@UniqueConstraint(columnNames={"numeroCompte"})})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TYPE_CPTE", discriminatorType = DiscriminatorType.STRING, length = 2)
+@XmlSeeAlso({CompteCourant.class, CompteEpargne.class})
 public abstract class Compte implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -94,6 +97,7 @@ public abstract class Compte implements Serializable {
 		this.solde = solde;
 	}
 
+	@XmlTransient
 	public Client getClient() {
 		return client;
 	}
@@ -102,6 +106,8 @@ public abstract class Compte implements Serializable {
 		this.client = client;
 	}
 
+	// annotation pour eviter la recursiveté, boucle infini
+	@XmlTransient
 	public Collection<Operation> getOperations() {
 		return operations;
 	}
@@ -110,6 +116,7 @@ public abstract class Compte implements Serializable {
 		this.operations = operations;
 	}
 
+	@XmlTransient
 	public Employe getEmploye() {
 		return employe;
 	}

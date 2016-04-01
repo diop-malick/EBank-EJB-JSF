@@ -17,7 +17,8 @@ import metier.session.BanqueLocal;
 /**
  * 
  * 
- * @author Malick for local test :
+ * @author Malick 
+ * for local test :
  *         http://localhost:8080/EbankV1-EJB3/BanqueSOAPService?wsdl
  */
 @Stateless
@@ -28,7 +29,7 @@ public class BanqueSOAPService {
 	private BanqueLocal metier;
 
 	@WebMethod
-	// @Oneway
+	@Oneway
 	public void addCompte(@WebParam(name = "solde") double solde) {
 		Compte cpt = new CompteCourant();
 		cpt.setActive(true);

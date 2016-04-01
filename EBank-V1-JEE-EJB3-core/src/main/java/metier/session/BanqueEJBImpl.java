@@ -14,10 +14,10 @@ import metier.entities.Groupe;
 import metier.entities.Operation;
 
 /**
- * EJB session STATELESS, sans état, que des méthode, crée un pool d'instance
+ * EJB session STATELESS, sans ï¿½tat, que des mï¿½thode, crï¿½e un pool d'instance
  * pour plusieur client,
  * 
- * publié dans l'annuaire jdni avec comme nom "EBANKV3"
+ * publiï¿½ dans l'annuaire jdni avec comme nom "EBANKV3"
  * 
  * @author Malick
  *
@@ -25,7 +25,7 @@ import metier.entities.Operation;
 @Stateless(name = "EBANKV3")
 public class BanqueEJBImpl implements BanqueRemote, BanqueLocal {
 
-	// fait le lien avec l'unitié de persistence dans persistence.xml
+	// fait le lien avec l'unitÃ© de persistence dans persistence.xml
 	@PersistenceContext(name = "UP_EBANKV3") 
 	private EntityManager em;
 
@@ -107,7 +107,10 @@ public class BanqueEJBImpl implements BanqueRemote, BanqueLocal {
 
 	@Override
 	public List<Compte> consulterComptes() {
+		// fetch - EAGER
 		Query req = em.createQuery("select c from Compte c");
+		// fetch - LAZY
+		// Query req = em.createQuery("select cpt from Compte cpt left join fetch cpt.Client");
 		return req.getResultList();
 	};
 	
@@ -128,18 +131,7 @@ public class BanqueEJBImpl implements BanqueRemote, BanqueLocal {
 		op.setCompte(c);
 		em.persist(op);
 	}
-	
-//	@Override
-//	public voide ffectuerVirement(double mt, Long cpte1, Long cpte2) {
-//	try{
-//	transaction.begin();
-//	Compte cp1= consulterCompte(cpte1); 
-//	Compte cp2= consulterCompte(cpte2);
-//	if(cp1.getSolde()<mt)transaction.rollback();
-//	cp1.setSolde(cp1.getSolde()-mt); cp2.setSolde(cp2.getSolde()+mt);
-//	transaction.commit();
-//	}catch(Exception e) { e.printStackTrace(); }
-//	}
+
 
 	@Override
 	public void verser(String code, double montant) {
@@ -161,11 +153,12 @@ public class BanqueEJBImpl implements BanqueRemote, BanqueLocal {
 	
 	@Override
 	public Compte consulterCompte(String numCpte) {
-		Compte cpte = em.find(Compte.class, numCpte);
-		if (cpte == null)
+		Query req = em.createQuery("select cpt from Compte cpt where cpt.numeroCompte=:x");
+		req.setParameter("x", numCpte);
+		List<Compte> cptes = req.getResultList();
+		if (cptes == null || cptes.size() == 0)
 			throw new RuntimeException("Compte " + numCpte + "n'existe pas");
-		cpte.getOperations().size();
-		return cpte;
+		return cptes.get(0);
 	}
 
 

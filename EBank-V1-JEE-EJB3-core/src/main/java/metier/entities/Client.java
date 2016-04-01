@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,7 +48,8 @@ public class Client implements Serializable {
 	@Column(nullable=false)
 	private Date dateNaissance;
 
-	@OneToMany(mappedBy = "client", fetch=FetchType.LAZY)
+	// @OneToMany(mappedBy = "client", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "client" , fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Compte> comptes;
 
 	/* constructor */
