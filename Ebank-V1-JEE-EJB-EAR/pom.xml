@@ -22,7 +22,8 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
-			<artifactId>EBank-V1-JEE-EJB3-web-JSP</artifactId>
+			<artifactId>EBank-V1-JEE-EJB3-web-JSF</artifactId>
+			<!-- <artifactId>EBank-V1-JEE-EJB3-web-JSP</artifactId>  -->
 			<version>${project.parent.version}</version>
 			<type>war</type>
 		</dependency>
@@ -40,7 +41,8 @@
 					<modules>
 						<webModule>
 							<groupId>${project.parent.groupId}</groupId>
-							<artifactId>EBank-V1-JEE-EJB3-web-JSP</artifactId>
+							<!-- <artifactId>EBank-V1-JEE-EJB3-web-JSP</artifactId>  -->
+							<artifactId>EBank-V1-JEE-EJB3-web-JSF</artifactId>
 						</webModule>
 						<ejbModule>
 							<groupId>${project.parent.groupId}</groupId>
