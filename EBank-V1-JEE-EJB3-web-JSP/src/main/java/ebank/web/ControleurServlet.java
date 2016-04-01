@@ -15,7 +15,7 @@ public class ControleurServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	// appel à l'EJB session via l'interface local
+	// référence vers l'EJB session via l'interface local
 	@EJB
 	private BanqueLocal metier;
 
