@@ -8,10 +8,10 @@ Application client / serveur de gestion de compte bancaire.
 
 Client / serveur -> 4 Modules  :
 
-		EBank-V1-JEE-EJB3-core 			(Business, DOA, Service Layer/ EJB project)	
-		EBank-V1-JEE-EJB3-web-JSF		(Web layer / Maven project)
-		EBank-V1-JEE-EJB3-web-JSP		(Web layer / Maven project)
-		EBank-V1-JEE-EJB3-remote-client	(remote Java application client)
+		EBank-V1-JEE-EJB3-core 			(Business, DOA, SOAP Service Layer / archive Maven EJB)	
+		EBank-V1-JEE-EJB3-web-JSF		(Web layer Servlet-JSP-JSTL / archive Maven WAR)
+		EBank-V1-JEE-EJB3-web-JSP		(Web layer JSF2 / archive Maven WAR)
+		EBank-V1-JEE-EJB3-remote-client	(Remote client / archive Maven JAR)
 	
 # Environment Used
 
@@ -22,7 +22,7 @@ Client / serveur -> 4 Modules  :
 		* DAO : JPA / Hibernate
 		* UI : JSP JSTL / JSF 2
 	
-	* Outils utilisés
+	* Tools
 	
 		* IDE : Eclipse Mars 
 		* Application Server : Jboss AS 7
@@ -35,8 +35,6 @@ Client / serveur -> 4 Modules  :
 
 
 # Link
-
-Link
 		
 		* video tutorial
 			* part 1 : https://www.youtube.com/watch?v=cY9U7nLdyQo
